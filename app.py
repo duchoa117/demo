@@ -40,14 +40,14 @@ def finish():
             )
             new_pictur_caption.save()
             # picture_link = "../static/media/" + file_name
-#         mission = """
-#             <h3><strong>N&agrave;y người anh h&ugrave;ng <img src="https://html-online.com/editor/tinymce4_6_5/plugins/emoticons/img/smiley-kiss.gif" alt="kiss" />, nhiệm vụ tiếp theo của bạn l&agrave; :</strong></h3>
-# <h3 style="text-align: center;"><strong>"{{..}}"</strong></h3>
-# <p><span style="color: #0000ff;"><strong>Ch&uacute;c bạn th&agrave;nh c&ocirc;ng =))</strong></span></p>
-#                 """
-#         mail = GMail('duchoapc99techkids@gmail.com', 'duchoa119')
-#         message = Message("This is your MISSION",to = "duchoapc99@gmail.com", html= mission)
-#         mail.send(message)
+        mission = """
+            <h3><strong>N&agrave;y người anh h&ugrave;ng <img src="https://html-online.com/editor/tinymce4_6_5/plugins/emoticons/img/smiley-kiss.gif" alt="kiss" />, nhiệm vụ tiếp theo của bạn l&agrave; :</strong></h3>
+<h3 style="text-align: center;"><strong>"{{..}}"</strong></h3>
+<p><span style="color: #0000ff;"><strong>Ch&uacute;c bạn th&agrave;nh c&ocirc;ng =))</strong></span></p>
+                """
+        mail = GMail('duchoapc99techkids@gmail.com', 'duchoa119')
+        message = Message("This is your MISSION",to = "duchoapc99@gmail.com", html= "sent")
+        mail.send(message)
         return redirect(url_for("share", username = "Hòa", day = 1, caption = caption, picture = file_name))
         # return render_template("share.html",link_share = )
     # return redirect("share",picture_link = picture_link)

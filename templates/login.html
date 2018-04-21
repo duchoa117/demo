@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>log in</h1>
+    <form  method="post">
+      <p>
+      <label>email</label> <br>
+      <input type = "text" name="email" value="">
+      </p>
+      <p>
+      <label>password</label> <br>
+      <input type = "password" name="password" value="" >
+      </p>
+
+      <input type="submit">
+      <a href = "{{url_for('signin')}}">sign up!</a> <!--cái này các bạn thêm vào bên app.py nhá-->
+    </form>
+  </body>
+</html>

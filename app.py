@@ -16,6 +16,9 @@ def allowed_filed(filename):
     check_2 = filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
     return check_1 and check_2
 # finish mission:
+@app.route("/")
+def index():
+    return "aasd"
 @app.route('/finish', methods = ["GET", "POST"])
 def finish():
     if request.method == "GET":

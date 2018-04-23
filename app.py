@@ -81,6 +81,10 @@ def share(username,day,caption):
     print(picture)
     return render_template("share.html",username = username, day = day, caption = caption, image = image)
 
+@app.route('/test')
+def test():
+    return "TEST ROUTER"
+
 
 if __name__ == '__main__':
   app.run( debug=True)

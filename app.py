@@ -31,7 +31,7 @@ def allowed_filed(filename):
 @app.route("/")
 def index():
     msg = Message("mission", sender="duchoapc99techkids@gmail.com", recipients=["duchoapc99@gmail.com","quy.dc98@gmail.com"])
-    msg.body("dfhdhdt")
+    # msg.body("dfhdhdt")
     mail.send(msg)
 
     return "aasd"

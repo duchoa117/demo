@@ -1,5 +1,4 @@
 from flask import*
-# from gmail import *
 from flask_mail import *
 import os # operating system
 import mlab
@@ -32,9 +31,11 @@ def allowed_filed(filename):
 @app.route("/")
 def index():
     msg = Message("mission", sender="duchoapc99techkids@gmail.com", recipients=["duchoapc99@gmail.com","quy.dc98@gmail.com"])
+    msg.body("dfhdhdt")
     mail.send(msg)
 
     return "aasd"
+
 @app.route('/finish', methods = ["GET", "POST"])
 def finish():
     if request.method == "GET":

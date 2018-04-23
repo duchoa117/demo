@@ -31,10 +31,8 @@ def allowed_filed(filename):
 @app.route("/")
 def index():
     msg = Message(subject = "mission", sender="duchoapc99techkids@gmail.com", recipients=["duchoapc99@gmail.com","quy.dc98@gmail.com"])
-    msg.body("dfhdhdt")
-    mail.send(msg)
-
-    return render_template("index.html")
+    # mail.send(msg)
+    return render_template("congratulation.html")
 
 @app.route('/finish', methods = ["GET", "POST"])
 def finish():

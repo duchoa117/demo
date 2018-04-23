@@ -22,4 +22,5 @@ gunicorn
 addict
 shortuuid
 gmail
-base64
+pybase64
+Flask-Mail

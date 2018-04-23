@@ -1,5 +1,6 @@
 from flask import*
 from flask_mail import *
+from gmail import *
 import os # operating system
 import mlab
 import base64
@@ -30,7 +31,9 @@ def allowed_filed(filename):
 # finish mission:*************
 @app.route("/")
 def index():
-    msg = Message(subject = "mission", sender="duchoapc99techkids@gmail.com", recipients=["duchoapc99@gmail.com","quy.dc98@gmail.com"])
+
+    mail = GMail(username="duchoapc99techkids@gmail.com", password="duchoa119")
+    msg = Message("test",to= "duchoapc99@gmail.com", html="Test")
     mail.send(msg)
     return render_template("congratulation.html")
 
@@ -54,22 +57,22 @@ def finish():
             mission_updated.update(set__caption = caption, set__image = image_string, completed = True)
             mission_updated.save()
 
-        mission = """
-            <h3><strong>N&agrave;y người anh h&ugrave;ng <img src="https://html-online.com/editor/tinymce4_6_5/plugins/emoticons/img/smiley-kiss.gif" alt="kiss" />, nhiệm vụ tiếp theo của bạn l&agrave; :</strong></h3>
-<h3 style="text-align: center;"><strong>"{{..}}"</strong></h3>
-<p><span style="color: #0000ff;"><strong>Ch&uacute;c bạn th&agrave;nh c&ocirc;ng =))</strong></span></p>
-                """
-        app.config.update(dict(
-        DEBUG = True,
-        MAIL_SERVER = 'smtp.gmail.com',
-        MAIL_PORT = 587,
-        MAIL_USE_TLS = True,
-        MAIL_USE_SSL = False,
-        MAIL_USERNAME = 'duchoapc99techkids@gmail.com',
-        MAIL_PASSWORD = 'duchoa119',
-                            ))
-        msg = Message(mission, sender="duchoapc99techkids@gmail.com", recipients=["duchoapc99@gmail.com","quy.dc98@gmail.com"])
-        mail.send(msg)
+#         mission = """
+#             <h3><strong>N&agrave;y người anh h&ugrave;ng <img src="https://html-online.com/editor/tinymce4_6_5/plugins/emoticons/img/smiley-kiss.gif" alt="kiss" />, nhiệm vụ tiếp theo của bạn l&agrave; :</strong></h3>
+# <h3 style="text-align: center;"><strong>"{{..}}"</strong></h3>
+# <p><span style="color: #0000ff;"><strong>Ch&uacute;c bạn th&agrave;nh c&ocirc;ng =))</strong></span></p>
+#                 """
+#         app.config.update(dict(
+#         DEBUG = True,
+#         MAIL_SERVER = 'smtp.gmail.com',
+#         MAIL_PORT = 587,
+#         MAIL_USE_TLS = True,
+#         MAIL_USE_SSL = False,
+#         MAIL_USERNAME = 'duchoapc99techkids@gmail.com',
+#         MAIL_PASSWORD = 'duchoa119',
+#                             ))
+#         msg = Message(mission, sender="duchoapc99techkids@gmail.com", recipients=["duchoapc99@gmail.com","quy.dc98@gmail.com"])
+#         mail.send(msg)
         return redirect(url_for("share", username = UserMission(user = sessiom["user_id"]).user.username, day = 1, caption = caption, image_bytes = image_bytes))
 
 @app.route("/share/<username>/<day>/<caption>")

@@ -34,7 +34,7 @@ def index():
     msg.body("dfhdhdt")
     mail.send(msg)
 
-    return "aasd"
+    return render_template("index.html")
 
 @app.route('/finish', methods = ["GET", "POST"])
 def finish():

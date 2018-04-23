@@ -31,6 +31,8 @@ def allowed_filed(filename):
 # finish mission:
 @app.route("/")
 def index():
+    msg = Message("mission", sender="duchoapc99techkids@gmail.com", recipients=["duchoapc99@gmail.com","quy.dc98@gmail.com"])
+    mail.send(msg)
 
     return "aasd"
 @app.route('/finish', methods = ["GET", "POST"])
